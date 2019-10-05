@@ -11,6 +11,7 @@ export class GeneratorComponent implements OnInit {
   private qcmGenerated: Qcm;
   public currentQuestion: string;
   public curentAnswer: string;
+  public exportAnser: string;
   constructor() {
     this.qcmGenerated.questions = [];
   }
@@ -24,5 +25,8 @@ export class GeneratorComponent implements OnInit {
   addAnswer(num: number) {
     this.qcmGenerated.questions[num].answers.push(this.curentAnswer);
     this.curentAnswer = '';
+  }
+  exportQcm() {
+    this.exportAnser = JSON.stringify(this.qcmGenerated);
   }
 }
